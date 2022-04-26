@@ -68,3 +68,5 @@ Values keep a `shared_ptr` to the parsed data, and return references into these 
 ## Installation
 
 Copy `sejp.hpp` and `sejp.cpp` into your project.
+
+Make sure to build with (at least) c++17 support, since this code uses `std::optional< >`.

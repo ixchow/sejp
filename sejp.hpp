@@ -4,21 +4,6 @@
 //upon loading into some lists of numbers, objects, bools, nulls;
 //then provides a generic "value" handle to the root.
 
-
-/* For example:
-void example_parse() {
-	try {
-		sejp::value val = sejp::load("file.json");
-		if (auto obj = val.as_object()) {
-			if (obj.at("format").as_string().value() != "yarnsim-1") throw std::runtime_error("Format string '" << val.as_object()["format"] << "' does not match 'yarnsim-1'");
-		}
-	} catch (std::execption &e) {
-		std::cerr << "Error parsing 'file.json':" << e.what() << std::endl;
-		exit(1);
-	}
-}
-*/
-
 #include <string>
 #include <vector>
 #include <map>
