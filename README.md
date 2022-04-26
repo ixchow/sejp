@@ -8,7 +8,7 @@ However, it does parse and hold the entire file in memory; so is not particularl
 ## Usage
 
 Usage example:
-```
+```cpp
 #include "sejp.hpp"
 #include <iostream>
 
