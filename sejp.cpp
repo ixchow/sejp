@@ -5,6 +5,7 @@
 #include <iostream>
 #include <fstream>
 #include <sstream>
+#include <charconv>
 
 namespace sejp {
 
@@ -111,7 +112,10 @@ value parse(std::istream &from) {
 			digits();
 		}
 
-		return std::stod(acc);
+		double val;
+		const char *begin = acc.data();
+		std::from_chars(begin, begin + acc.size(), val);
+		return val;
 	};
 
 	auto read_string = [&read_char]() -> std::string {
