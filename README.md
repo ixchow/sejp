@@ -1,3 +1,5 @@
+The latest version of this code is available at [https://github.com/ixchow/sejp](https://github.com/ixchow/sejp).
+
 # Somewhat Eager JSON Parser
 
 SEJP is a Somewhat Eager JSON Parser for C++ -- it reads JSON file from a stream and makes it into dynamically-typed values as it does so.
