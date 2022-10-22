@@ -1,4 +1,4 @@
-The latest version of this code is available at [https://github.com/ixchow/sejp](https://github.com/ixchow/sejp).
+This code was written by Jim McCann (ix), and is released under the MIT license. The latest version of this code is available at [https://github.com/ixchow/sejp](https://github.com/ixchow/sejp).
 
 # Somewhat Eager JSON Parser
 
