@@ -74,7 +74,7 @@ value parse(std::istream &from) {
 			for(;;) {
 				std::istream::int_type p = from.peek();
 				if ('0' <= p && p <= '9') {
-					acc += p;
+					acc += char(p);
 					from.get();
 				} else {
 					break;
@@ -267,11 +267,11 @@ value parse(std::istream &from) {
 			continue;
 		} else if (c == '"') { //string
 			if (uint32_t(parsed->strings.size()) & ~IndexBits) std::runtime_error("parser error: too many strings.");
-			target->index = String | parsed->strings.size();
+			target->index = String | uint32_t(parsed->strings.size());
 			parsed->strings.emplace_back(read_string());
 		} else if (c == '-' || (c >= '0' && c <= '9')) { //number
 			if (uint32_t(parsed->numbers.size()) & ~IndexBits) std::runtime_error("parser error: too many numbers.");
-			target->index = Number | parsed->numbers.size();
+			target->index = Number | uint32_t(parsed->numbers.size());
 			parsed->numbers.emplace_back(read_number(c));
 		} else if (c == 't') { //true
 			read_exactly("rue");
