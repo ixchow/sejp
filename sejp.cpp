@@ -113,8 +113,13 @@ value parse(std::istream &from) {
 		}
 
 		double val;
+		#ifdef __APPLE__
+		//(until clang gets its charconv right)
+		val = std::stod(data);
+		#else
 		const char *begin = acc.data();
 		std::from_chars(begin, begin + acc.size(), val);
+		#endif
 		return val;
 	};
 
