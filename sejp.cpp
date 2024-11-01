@@ -322,7 +322,7 @@ std::optional< double > const &value::as_number() const {
 
 std::optional< bool > const &value::as_bool() const {
 	static std::optional< bool > const true_value(true);
-	static std::optional< bool > const false_value(true);
+	static std::optional< bool > const false_value(false);
 	static std::optional< bool > const empty;
 	if ((index & TypeBits) == True) {
 		return true_value;
