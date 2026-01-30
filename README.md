@@ -2,10 +2,10 @@ This code was written by Jim McCann (ix), and is released under the MIT license.
 
 # Somewhat Eager JSON Parser
 
-SEJP is a Somewhat Eager JSON Parser for C++ -- it reads JSON file from a stream and makes it into dynamically-typed values as it does so.
+SEJP is a Somewhat Eager JSON Parser for C++ -- it reads JSON from a stream and makes it into dynamically-typed values as it does so.
 It is a small and reasonably lightweight piece of code (easy to audit and integrate!).
 
-However, it does parse and hold the entire file in memory; so is not particularly suited to streaming access of very large files.
+However, it does parse and hold the entire file in memory. It is, therefore, not suited to streaming access to very large files.
 
 ## Usage
 
