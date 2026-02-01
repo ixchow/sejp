@@ -262,23 +262,23 @@ value parse(std::istream &from) {
 		assert(target && (target->index & TypeBits) == Empty);
 
 		if        (c == '{') { //object
-			if (uint32_t(parsed->objects.size()) & ~IndexBits) std::runtime_error("parser error: too many objects.");
+			if (uint32_t(parsed->objects.size()) & ~IndexBits) throw std::runtime_error("parser error: too many objects.");
 			target->index = Object | uint32_t(parsed->objects.size());
 			parents.emplace_back(target->index);
 			parsed->objects.emplace_back(std::in_place);
 			continue;
 		} else if (c == '[') { //array
-			if (uint32_t(parsed->arrays.size()) & ~IndexBits) std::runtime_error("parser error: too many arrays.");
+			if (uint32_t(parsed->arrays.size()) & ~IndexBits) throw std::runtime_error("parser error: too many arrays.");
 			target->index = Array | uint32_t(parsed->arrays.size());
 			parents.emplace_back(target->index);
 			parsed->arrays.emplace_back(std::in_place);
 			continue;
 		} else if (c == '"') { //string
-			if (uint32_t(parsed->strings.size()) & ~IndexBits) std::runtime_error("parser error: too many strings.");
+			if (uint32_t(parsed->strings.size()) & ~IndexBits) throw std::runtime_error("parser error: too many strings.");
 			target->index = String | uint32_t(parsed->strings.size());
 			parsed->strings.emplace_back(read_string());
 		} else if (c == '-' || (c >= '0' && c <= '9')) { //number
-			if (uint32_t(parsed->numbers.size()) & ~IndexBits) std::runtime_error("parser error: too many numbers.");
+			if (uint32_t(parsed->numbers.size()) & ~IndexBits) throw std::runtime_error("parser error: too many numbers.");
 			target->index = Number | uint32_t(parsed->numbers.size());
 			parsed->numbers.emplace_back(read_number(c));
 		} else if (c == 't') { //true
